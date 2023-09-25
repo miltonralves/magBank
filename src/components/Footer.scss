@@ -1,0 +1,12 @@
+@import "../variables";
+
+.footer {
+  border-bottom: 0.2rem solid $color-secundary;
+}
+
+.py-5-xs-5 {
+  margin: 3rem 0;
+  @media screen and (min-width: 992px) {
+    margin: 0;
+  }
+}
