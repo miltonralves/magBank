@@ -8,7 +8,7 @@ import Payments from "../components/AccountPayments";
 
 import "./Dashboard.scss";
 
-const Dashboard = () => {
+const Dashboard = ({ className = false, name, account }) => {
   const [activeLink, setActiveLink] = useState(0);
 
   const links = [
@@ -80,8 +80,8 @@ const Dashboard = () => {
               </span>
             </Col>
             <Col xs={9}>
-              <h3>Milton R Alves</h3>
-              <p className="text-muted">ag:1234 c/c: 4321-5</p>
+              <h3>{name}</h3>
+              <p className="text-muted">ag:1234 c/c: {account}</p>
             </Col>
           </Row>
 

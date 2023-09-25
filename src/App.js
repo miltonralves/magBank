@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import AccountModal from "./components/AccountModal";
@@ -9,6 +9,14 @@ import "./App.scss";
 import NoPage from "./views/NoPage";
 import Login from "./views/Login";
 import Dashboard from "./views/Dashboard";
+
+const ProtectedRoute = ({ logged, children }) => {
+  if (!logged) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 const App = () => {
   const [shoModal, setShowModal] = useState(false);
@@ -38,7 +46,15 @@ const App = () => {
           element={<Home handleClick={() => setShowModal(true)} />}
         />
         <Route path="/login" element={<Login auth={fakeAuth} />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute logged={isLogged}>
+              <Dashboard name={name} account={account} />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
