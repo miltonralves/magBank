@@ -11,7 +11,7 @@ import "./Navbar.scss";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 
-const Navigation = ({ handleCreateAcc }) => (
+const Navigation = ({ handleCreateAcc, auth, logged }) => (
   <Navbar variant="dark" expand="lg">
     <Container>
       <Navbar.Brand>

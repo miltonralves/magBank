@@ -4,7 +4,6 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import "./Institutional.scss";
 import IconText from "./IconText";
 import {
-  faFileWord,
   faGlobe,
   faMobile,
   faMobileAlt,

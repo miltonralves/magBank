@@ -39,7 +39,11 @@ const App = () => {
 
   return (
     <>
-      <Navigation handleCreateAcc={() => setShowModal(true)} />
+      <Navigation
+        handleCreateAcc={() => setShowModal(true)}
+        auth={fakeAuth}
+        logged={isLogged}
+      />
       <Routes>
         <Route
           path="/"
