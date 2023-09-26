@@ -62,7 +62,11 @@ const App = () => {
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
-      <AccountModal show={shoModal} handleClose={() => setShowModal(false)} />
+      <AccountModal
+        show={shoModal}
+        handleClose={() => setShowModal(false)}
+        auth={fakeAuth}
+      />
     </>
   );
 };
